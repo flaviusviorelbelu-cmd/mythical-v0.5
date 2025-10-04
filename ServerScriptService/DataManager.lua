@@ -28,6 +28,12 @@ local defaultPlayerData = {
 -- Player data cache (simple)
 local playerData = {}
 
+-- FIXED: Add the missing InitializePlayer function
+function DataManager.InitializePlayer(player)
+	print("[DataManager] Initializing player:", player.Name)
+	return DataManager.LoadPlayerData(player)
+end
+
 -- Update the LoadPlayerData function
 function DataManager.LoadPlayerData(player)
 	local success, data = pcall(function()
